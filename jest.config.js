@@ -8,7 +8,7 @@ module.exports = {
     '<rootDir>/src/**/*.ts',
     '!<rootDir>/src/**/constant.ts',
   ],
-  testPathIgnorePatterns: ['<rootDir>/node_modules'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules', '<rootDir>/dist'],
   coverageReporters: ['json', 'html'],
   transform: {
     '^.+.tsx?$': ['ts-jest', {}],
