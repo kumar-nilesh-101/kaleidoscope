@@ -1,4 +1,6 @@
-node_modules
-dist
 .vscode
 .tsbuildinfo
+
+node_modules
+dist
+coverage
