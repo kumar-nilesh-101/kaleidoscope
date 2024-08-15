@@ -1,6 +1,5 @@
-import 'module-alias/register';
 import 'reflect-metadata';
-import { BaseFactory, Factory, FactoryProduct } from '@/design/factory';
+import { BaseFactory, Factory, FactoryProduct } from '@design/factory';
 
 interface VehicleFactory {
     move(): void;

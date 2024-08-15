@@ -1,4 +1,4 @@
-import { ClassDecorator } from "@/core/types";
+import { ClassDecorator } from "@core/types";
 
 export const FACTORY_SYMBOL = Symbol.for('factory');
 
