@@ -13,7 +13,9 @@
     "baseUrl": "src",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
       "@design/*": ["design/*"],
-      "@core/*": ["core/*"]
+      "@core/*": ["core/*"],
+      "src/*": ["./*"],
+      "tests/*": ["../__tests__/*"]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     "resolveJsonModule": true,                        /* Enable importing .json files. */
     "allowJs": true,                                  /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
@@ -40,5 +42,5 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "exclude": ["node_modules"],
-  "include": ["src"]
+  "include": ["src", "__tests__"]
 }

@@ -2,7 +2,7 @@
   "scripts": {
     "start": "tsnd -r tsconfig-paths/register --files --transpile-only --respawn --inspect=4321 ./src",
     "test:init": "ts-jest config:init",
-    "test": "jest --passWithNoTests --updateSnapshot --coverage",
+    "test": "jest --passWithNoTests --updateSnapshot --coverage --watch",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
@@ -12,6 +12,8 @@
     "posttest": "npm run lint"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
     "@types/node": "20.12.7",
     "gts": "^5.3.1",
     "jest": "^29.7.0",
