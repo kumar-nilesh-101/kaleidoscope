@@ -1,10 +1,6 @@
 {
-  "devDependencies": {
-    "@types/node": "20.12.7",
-    "gts": "^5.3.1",
-    "typescript": "^5.5.4"
-  },
   "scripts": {
+    "start": "ts-node ./src/index.ts",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
@@ -13,7 +9,20 @@
     "pretest": "npm run compile",
     "posttest": "npm run lint"
   },
+  "devDependencies": {
+    "@types/module-alias": "^2.0.4",
+    "@types/node": "20.12.7",
+    "gts": "^5.3.1",
+    "module-alias": "^2.2.3",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
   "dependencies": {
     "reflect-metadata": "^0.2.2"
-  }
+  },
+  "_moduleAliases": {
+    "@": "./dist"
+  },
+  "type": "commonjs"
 }
