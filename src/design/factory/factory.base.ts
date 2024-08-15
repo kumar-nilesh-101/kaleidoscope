@@ -1,4 +1,4 @@
-import { Type } from "@/core/types";
+import { Type } from "@core/types";
 import { FACTORY_SYMBOL } from "./factory.decorator";
 
 export abstract class BaseFactory<Product> {
@@ -8,8 +8,8 @@ export abstract class BaseFactory<Product> {
         this.productClasses = Reflect.getMetadata(FACTORY_SYMBOL, this.constructor);
     }
 
-    protected resolveProduct(resolveType: Type<Product>, ...args: unknown[]) {
-        const resolvedProductType = this.productClasses.find(product => product.constructor === resolveType.constructor);
+    resolveProduct(resolveType: Type<Product>, ...args: unknown[]) {
+        const resolvedProductType = this.productClasses.find(product => product === resolveType);
         if(!resolvedProductType) {
             throw `Product type not recognized for factory, ${this.constructor.name}`;
         }

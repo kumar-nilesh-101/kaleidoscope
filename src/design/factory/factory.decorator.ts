@@ -4,7 +4,7 @@ export const FACTORY_SYMBOL = Symbol.for('factory');
 
 export function Factory(): ClassDecorator {
     return function <FactoryFunction extends Function>(constructor: FactoryFunction) {
-        Reflect.defineMetadata(FACTORY_SYMBOL, {}, constructor);
+        Reflect.defineMetadata(FACTORY_SYMBOL, [], constructor);
     }
 }
 
