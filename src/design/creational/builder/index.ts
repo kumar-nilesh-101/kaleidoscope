@@ -1,1 +1,2 @@
-export * from './build.decorator';
+export { Build } from './build.decorator';
+export * from './build-class.decorator';

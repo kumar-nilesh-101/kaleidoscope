@@ -1,10 +1,12 @@
+import { Type } from '@core/types';
+
 export const BUILDER_SYMBOL = Symbol.for('builder');
 export const BUILDER_PROPERTIES_META_SYMBOL = Symbol.for(
     'builder_properties_meta'
 );
 
-export function Build(buildClassType: any): Function {
-    return function <BuilderFunction extends { new (...args: any[]): any }>(
+export function Build(buildClassType: Type): Function {
+    return function <BuilderFunction extends Type>(
         constructor: BuilderFunction
     ) {
         const propertyTypeDetails = Reflect.getMetadata(
@@ -13,7 +15,7 @@ export function Build(buildClassType: any): Function {
         );
 
         return class extends constructor {
-            private buildClass: typeof buildClassType;
+            private buildClass;
 
             constructor(...args: any[]) {
                 super(...args);
@@ -33,40 +35,9 @@ export function Build(buildClassType: any): Function {
                 }
             }
 
-            build(): typeof buildClassType {
+            build() {
                 return this.buildClass;
             }
         };
-    };
-}
-
-export function CreateSetter<DefaultValueType>(
-    defaultValue: DefaultValueType
-): PropertyDecorator {
-    return function (target: Object, propertyKey: string | symbol) {
-        const propertyType = Reflect.getMetadata(
-            'design:type',
-            target,
-            propertyKey
-        );
-
-        Reflect.defineMetadata(
-            BUILDER_PROPERTIES_META_SYMBOL,
-            {
-                [propertyKey]: propertyType,
-                ...(Reflect.getMetadata(
-                    BUILDER_PROPERTIES_META_SYMBOL,
-                    target
-                ) || {}),
-            },
-            target
-        );
-
-        Object.defineProperty(target, propertyKey, {
-            configurable: true,
-            enumerable: true,
-            value: defaultValue,
-            writable: true,
-        });
     };
 }
