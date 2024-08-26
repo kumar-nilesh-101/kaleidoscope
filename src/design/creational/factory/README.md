@@ -2,7 +2,7 @@
 
 Factory pattern is a way of creating objects of subclasses as an instance of the classes but with the flexibility that subclasses can alter the type of the instance upon creation.
 
-## Example: 
+Lets have see how `kaleidoscope/design` helps you clean up you code base.
 
 ```ts
 interface VehicleFactory {
