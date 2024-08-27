@@ -2,8 +2,8 @@ import {
     BaseFactory,
     Factory,
     FactoryProduct,
-} from 'src/design/creational/factory';
-import { FACTORY_SYMBOL } from 'src/design/creational/factory/factory.decorator';
+} from '@design/creational/factory';
+import { FACTORY_SYMBOL } from '@design/creational/factory/factory.decorator';
 
 describe('Factory design pattern', () => {
     describe('Factory decorator', () => {
