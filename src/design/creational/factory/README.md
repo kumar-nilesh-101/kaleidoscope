@@ -1,4 +1,4 @@
-# Factory
+## Factory
 
 Factory pattern is a way of creating objects of subclasses as an instance of the classes but with the flexibility that subclasses can alter the type of the instance upon creation.
 
