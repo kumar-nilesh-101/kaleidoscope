@@ -10,7 +10,8 @@ export function Singleton() {
                 if (instance) {
                     return instance;
                 } else {
-                    return (instance = new constructor(...args));
+                    instance = new constructor(...args);
+                    Object.setPrototypeOf(instance, constructor);
                 }
             }
         };
