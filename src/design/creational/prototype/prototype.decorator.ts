@@ -4,7 +4,9 @@ export function Prototype(): Function {
     return function <Prototypal extends Type>(constructor: Prototypal) {
         return class extends constructor {
             clone() {
-                return structuredClone(this);
+                const clonedInstance = structuredClone(this);
+                Object.setPrototypeOf(clonedInstance, this);
+                return clonedInstance;
             }
         };
     };
