@@ -32,3 +32,4 @@ class ExampleSingletonClass {}
 
 const instance = new ExampleSingletonClass();
 ```
+Instantiate the easy way and rest of it will be handled for you.
