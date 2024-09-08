@@ -5,13 +5,15 @@ export function Singleton() {
     return function <SingletonFunction extends Type>(
         constructor: SingletonFunction
     ) {
-        return <SingletonFunction>class {
+        return <SingletonFunction>class extends constructor {
             constructor(...args: any[]) {
                 if (instance) {
                     return instance;
                 } else {
-                    instance = new constructor(...args);
-                    Object.setPrototypeOf(instance, constructor);
+                    super(...args);
+                    // eslint-disable-next-line @typescript-eslint/no-this-alias
+                    instance = this;
+                    return instance;
                 }
             }
         };
