@@ -1,4 +1,4 @@
-import { Singleton } from '@design/creational/singleton/singleton.decorator';
+import { Singleton } from '@design/creational/singleton';
 
 describe('Singleton design pattern', () => {
     it('should create and allow only one instance', () => {
